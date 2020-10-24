@@ -1,0 +1,32 @@
+{
+  "name": "yp-sprint3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:ts && npm run build:css && cp ./src/index.html ./dist/index.html && node fixImportExtentions",
+    "build:ts": "tsc",
+    "build:css": "postcss src/app.css -o dist/bundle.css",
+    "test": "jest",
+    "start": "static dist -H '{\"Cache-Control\": \"no-cache, must-revalidate\"}'",
+    "watch": "chokidar \"src/**/*.ts\" \"src/**/*.css\" -c \"npm run build\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "chokidar-cli": "^2.1.0",
+    "jest": "^26.4.2",
+    "node-static": "^0.7.11",
+    "postcss-cli": "^8.0.0",
+    "postcss-import": "^12.0.1",
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
+  },
+  "jest": {
+    "transform": {
+      ".+\\.(t|j)s$": "ts-jest"
+    }
+  }
+}
